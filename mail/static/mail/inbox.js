@@ -158,15 +158,16 @@ function reply_email(email) {
     let body = email.body;
     console.log(body);
     const marker = '<<<';
-    var result = body.substring(body.indexOf(marker) + marker.length);
-    
-    console.log(result);
+    if (body.indexOf(marker) > -1){
+        body = body.substring(body.indexOf(marker) + marker.length);
+    }
+    console.log(body);
     
   
   // Load composition fields
     document.querySelector('#compose-recipients').value = recipient;
     document.querySelector('#compose-subject').value = subject;
-    document.querySelector('#compose-body').value = `>>>On ${time} ${email.sender} wrote:\n ${result} \r\n<<<`;
+    document.querySelector('#compose-body').value = `>>>On ${time} ${email.sender} wrote:\n ${body} \r\n<<<`;
 }
 
 

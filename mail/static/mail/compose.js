@@ -21,6 +21,8 @@ document.addEventListener('DOMContentLoaded', function (){
             
             load_mailbox('sent');
             msg.innerHTML = `<h4>${result.message}</h4>`;
+        }else{
+            msg.innerHTML = `<h4>${result.error}</h4>`;
         }
     })
       
